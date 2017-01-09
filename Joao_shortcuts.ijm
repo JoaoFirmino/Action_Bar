@@ -13,6 +13,7 @@ run("FRC Calculation...");
 label=Batch FRC
 icon=noicon
 arg=<macro>
+// Cheese
 run("FRC Calculation (Batch)...");
 </macro>
 </line>
