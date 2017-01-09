@@ -56,25 +56,5 @@ arg=<macro>
 run("Label...");
 showMessage("Label");
 </macro>
-<button> 2 line 4
-label=button_2_4
-icon=noicon
-arg=<macro>
-showMessage("You pressed button 2 line 4");
-</macro>
-</line>
-<line>
-<button> 1 line 5
-label=button_1_5
-icon=noicon
-arg=<macro>
-showMessage("You pressed button 1 line 5");
-</macro>
-<button> 2 line 5
-label=button_2_5
-icon=noicon
-arg=<macro>
-showMessage("You pressed button 2 line 5");
-</macro>
 </line>
 // end of file
