@@ -54,6 +54,8 @@ icon=noicon
 arg=<macro>
 run("Z Project...");
 </macro>
+</line>
+<line>
 <button> 
 label=Split Channels
 icon=noicon
