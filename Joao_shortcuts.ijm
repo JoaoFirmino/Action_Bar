@@ -1,6 +1,17 @@
-// Action Bar description file :new_action_bar
+// Action Bar description file : Joao's super ActionBar
+
+// Install common functions
+call("BIOP_LibInstaller.installLibrary", "BIOP"+File.separator+"BIOPLib.ijm");
+
+
 run("Action Bar","/plugins/ActionBar/Joao_shortcuts.ijm");
 exit;
+<codeLibrary>
+ function toolName() {
+ 	return "Joao's Settings";
+ }
+
+</codeLibrary>
 
 <line>
 <button>
@@ -52,11 +63,36 @@ run("Split Channels");
 </line>
 <line>
 <button>
-label=Label
+label=Set B&C Current Image
 icon=noicon
 arg=<macro>
-run("Label...");
-showMessage("Label");
+getDimensions(width, height, channels, slices, frames);
+	for (i=0;i<channels;i++){
+		chNbr=(i+1);
+		if(nSlices>1) {
+			Stack.setChannel(chNbr);
+		}
+		run("Brightness/Contrast...");
+		waitForUser(" Set B&C for channel "+chNbr+"\n Please set Min and Max \n and press Ok");
+		getMinAndMax(min, max);
+		setData("min ch"+chNbr,min);
+		setData("max ch"+chNbr,max);
+	}
+</macro>
+<button>
+label=Apply B&C Current Image
+icon=noicon
+arg=<macro>
+	getDimensions(width, height, channels, slices, frames);
+	for (i=0;i<channels;i++){
+		chNbr=(i+1);
+		if(nSlices>1) {
+			Stack.setChannel(chNbr);
+		}
+		min = getData("min ch"+chNbr);
+		max = getData("max ch"+chNbr);
+		setMinAndMax(min, max);
+	}
 </macro>
 </line>
 // end of file
